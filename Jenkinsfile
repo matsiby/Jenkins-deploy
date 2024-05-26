@@ -36,6 +36,7 @@ pipeline {
         }
         stage('Deploy'){
             steps {
+                 sh 'kubectl get pods'
                  sh 'kubectl apply -f deployment.yml --validate=false'
                  sh 'kubectl rollout restart deployment hello-world'
             }
